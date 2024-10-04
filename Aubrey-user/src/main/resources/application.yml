@@ -1,0 +1,44 @@
+server:
+  #前端代码启动端口默认调用7777端口
+  port: 7777
+spring:
+  #数据库链接池信息
+  datasource:
+    url: jdbc:mysql://localhost:3306/sg_blog?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Aubrey00
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    # 文件上传信息
+    multipart:
+      #最大为2MB
+      max-file-size: 2MB
+      max-request-size: 5MB
+  #配置redis链接地址
+  redis:
+    database: 0
+    host: 192.168.81.100 #虚拟机地址
+    password: Aubrey00
+    port: 6379
+
+mybatis-plus:
+  configuration:
+    # MP的日志信息打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #配置逻辑删除的字段名为delFlag
+      logic-delete-field: delFlag
+      #已经被逻辑删除的值为1
+      logic-delete-value: 1
+      #未被逻辑删除的值为1
+      logic-not-delete-value: 0
+      #主键自增策略:采用数据库自增。不配置的话默认会使用雪花算法,占用内存空间
+      id-type: auto
+#配置七牛云的相关信息(ak/sk/上传的存储空间)
+oss:
+  accessKey: ku1WylsYRhBwQG5OAp3s7DgOvIha1QY1cimV9Yum
+  secretKey: 2XXPQBBmPRfLP9FujAqB3fBIM6fEyEZns1Ufhc2B
+  bucket: aubrey-blog
+
+
